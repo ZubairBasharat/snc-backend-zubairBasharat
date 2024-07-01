@@ -1,0 +1,25 @@
+To use these changes:
+
+Run docker-compose up -d to start the PostgreSQL container.
+Run npx prisma migrate dev --name init to create the initial migration and apply it to the database.
+Run npx prisma db seed to seed the database with the mock users.
+Update your application code to use the new getPersonFromDB function instead of the mock data.
+
+bash
+npm install @prisma/client
+npm install prisma --save-dev
+
+Create a migration file:
+
+Run the following command in your terminal:
+bashCopynpx prisma migrate dev --name add_company_and_user_company_relations
+
+Apply the migration:
+
+The migration will be automatically applied when you run the prisma migrate dev command. If you want to apply it manually, you can use:
+bashCopynpx prisma migrate deploy
+
+Update Prisma Client:
+
+After applying the migration, update your Prisma Client by running:
+bashCopynpx prisma generate
